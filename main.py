@@ -67,4 +67,23 @@ check_button.pack()
 image_route = "hiragana"
 images, translates = get_hiragana_images_and_translates(image_route)
 
+random_img = random.sample(images, 10)
+random_translate = [translates[images.index(img)] for img in random_img]
 
+show_images(random_img[0], random_translate[0])
+
+
+index = 1
+
+def next_img():
+    global index
+    if index < len(random_img):
+        show_images(random_img[index], random_translate[index])
+        index += 1
+    else:
+        print("¡Has terminado!")
+
+next_button = ttk.Button(window, text="next", command=next_img())
+next_button.pack()
+
+window.mainloop()

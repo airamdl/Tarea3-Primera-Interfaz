@@ -40,4 +40,31 @@ def show_images(imagen, translate):
 
 
 
+def check_answer():
+    answer = entry_answer.get()
+    points = 0
+    if answer == translate:
+        print("¡Correcto!")
+        points +=1
+    else:
+        print("Incorrecto. La respuesta correcta es:", translate)
+
+
+window = tk.Tk()
+window.title("translate Hiragana")
+
+label_imagen = ttk.Label(window)
+label_imagen.pack()
+
+entry_answer = ttk.Entry(window)
+entry_answer.pack()
+
+check_button = ttk.Button(window, text="check", command=check_answer())
+check_button.pack()
+
+
+
+image_route = "hiragana"
+images, translates = get_hiragana_images_and_translates(image_route)
+
 
